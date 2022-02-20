@@ -1,0 +1,18 @@
+.hero {
+  @apply relative h-[300px] sm:h-[400px]
+         lg:h-[500px] xl:h-[600px] 2xl:h-[700px];
+
+  &_content {
+    @apply absolute w-full top-1/2 text-center;
+
+    p {
+      @apply text-sm sm:text-lg;
+    }
+
+    &_button {
+      @apply px-10 py-4 bg-white text-purple-500
+             shadow-md rounded-full font-bold my-3
+             hover:shadow-xl active:scale-90 transition duration-150;
+    }
+  }
+}
