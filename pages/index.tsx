@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Head from "next/head";
-import { Header } from "@components/common";
-import { Hero, MediumCard, SmallCard } from "@components/ui";
+import { Footer, Header } from "@components/common";
+import { Hero, LargeCard, MediumCard, SmallCard } from "@components/ui";
 import { GetStaticProps } from "next";
 
 interface IHomeProps {
@@ -69,14 +69,23 @@ const Home: FC<IHomeProps> = (props) => {
 
         <section className="">
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
-          <div className="flex space-x-3 overflow-scrolls">
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
             {cardData &&
               cardData.map((q, qKey) => (
                 <MediumCard key={qKey} img={q.img} title={q.title} />
               ))}
           </div>
         </section>
+
+        <LargeCard
+          img="https://links.papareact.com/4cj"
+          title="The Greatest Outdoors"
+          description="Wishlists curated by Airbnb"
+          buttonText="Get Inspired"
+        />
       </main>
+
+      <Footer />
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.largeCard {
+  @apply relative py-16 cursor-pointer;
+
+  &_imageContainer {
+    @apply relative h-96 min-w-[300px];
+
+    &_image {
+      @apply rounded-2xl;
+    }
+  }
+
+  &_contentContainer {
+    @apply absolute top-32 left-12;
+
+    h3 {
+      @apply w-64 mb-3 text-4xl;
+    }
+
+    button {
+      @apply text-white text-sm bg-gray-900 px-4 py-2 rounded-lg mt-5;
+    }
+  }
+}
