@@ -1,0 +1,19 @@
+.smallCard {
+  @apply flex items-center m-2 mt-5 space-x-4 rounded-xl
+         cursor-pointer transition transform duration-200 ease-out
+         hover:bg-gray-100 hover:scale-105;
+
+  &_imgContainer {
+    @apply relative h-16 w-16;
+
+    &_image {
+      @apply rounded-lg;
+    }
+  }
+
+  &_textContainer {
+    h3 {
+      @apply text-gray-500;
+    }
+  }
+}

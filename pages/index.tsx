@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Head from "next/head";
 import { Header } from "@components/common";
-import { Hero } from "@components/ui";
+import { Hero, MediumCard, SmallCard } from "@components/ui";
 import { GetStaticProps } from "next";
 
 interface IHomeProps {
@@ -9,7 +9,13 @@ interface IHomeProps {
     {
       img: string;
       location: string;
-      destination: string;
+      distance: string;
+    }
+  ];
+  cardData: [
+    {
+      img: string;
+      title: string;
     }
   ];
 }
@@ -19,15 +25,20 @@ export const getStaticProps: GetStaticProps = async () => {
     (res) => res.json()
   );
 
+  const cardData = await fetch("https://links.papareact.com/zp1").then((res) =>
+    res.json()
+  );
+
   return {
     props: {
       exploreData,
+      cardData,
     },
   };
 };
 
 const Home: FC<IHomeProps> = (props) => {
-  const { exploreData } = props;
+  const { exploreData, cardData } = props;
 
   return (
     <div>
@@ -43,9 +54,27 @@ const Home: FC<IHomeProps> = (props) => {
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {exploreData &&
+              exploreData.map((q, qKey) => (
+                <SmallCard
+                  key={qKey}
+                  img={q.img}
+                  location={q.location}
+                  distance={q.distance}
+                />
+              ))}
+          </div>
+        </section>
 
-          {exploreData &&
-            exploreData.map((q, qKey) => <h1 key={qKey}>{q.location}</h1>)}
+        <section className="">
+          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+          <div className="flex space-x-3 overflow-scrolls">
+            {cardData &&
+              cardData.map((q, qKey) => (
+                <MediumCard key={qKey} img={q.img} title={q.title} />
+              ))}
+          </div>
         </section>
       </main>
     </div>

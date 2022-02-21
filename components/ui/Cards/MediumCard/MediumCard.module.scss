@@ -1,0 +1,16 @@
+.mediumCard {
+  @apply cursor-pointer transition transform duration-300
+         hover:scale-105;
+
+  &_imageContainer {
+    @apply relative h-80 w-80;
+
+    &_image {
+      @apply rounded-xl;
+    }
+  }
+
+  h3 {
+    @apply mt-3 text-2xl;
+  }
+}
