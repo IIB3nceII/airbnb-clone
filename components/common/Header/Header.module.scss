@@ -24,16 +24,44 @@
       @apply hidden md:inline cursor-pointer;
     }
 
-    &_globealticon {
+    &_globeAltIcon {
       @apply h-6 cursor-pointer;
     }
 
     &_menu {
       @apply flex items-center space-x-2 border-2 p-2 rounded-full;
 
-      &_menuicon,
-      &_usercircleicon {
+      &_menuIcon,
+      &_userCircleIcon {
         @apply h-6 cursor-pointer;
+      }
+    }
+  }
+
+  &_dateRangePicker {
+    @apply flex flex-col col-span-3 mx-auto;
+
+    &_guests {
+      @apply flex items-center border-b mb-4;
+
+      h2 {
+        @apply text-2xl flex-grow font-semibold;
+      }
+
+      &_input {
+        @apply w-12 pl-2 text-lg outline-none text-red-400;
+      }
+    }
+
+    &_buttonContainer {
+      @apply flex;
+
+      button {
+        @apply flex-grow;
+
+        &:last-child {
+          @apply text-red-400;
+        }
       }
     }
   }
